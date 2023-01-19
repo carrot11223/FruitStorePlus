@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="furitStore:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/furitStore_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="furitStore" />
+          <element id="dir-copy" path="$PROJECT_DIR$" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf:Release" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/代码素材资料/00.sql和jar/01.jar/thymeleaf_lib/ognl-3.1.26.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/代码素材资料/00.sql和jar/01.jar/thymeleaf_lib/log4j-1.2.15.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/代码素材资料/00.sql和jar/01.jar/thymeleaf_lib/slf4j-api-1.7.25.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/代码素材资料/00.sql和jar/01.jar/thymeleaf_lib/javassist-3.20.0-GA.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/代码素材资料/00.sql和jar/01.jar/thymeleaf_lib/slf4j-log4j12-1.7.25.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/代码素材资料/00.sql和jar/01.jar/thymeleaf_lib/unbescape-1.1.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/代码素材资料/00.sql和jar/01.jar/thymeleaf_lib/attoparser-2.0.5.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/代码素材资料/00.sql和jar/01.jar/thymeleaf_lib/thymeleaf-3.0.12.RELEASE.jar" />
+          <element id="file-copy" path="E:/File/somefile/mysql 的jar包/druid-1.2.10.jar" />
+          <element id="file-copy" path="E:/File/somefile/mysql 的jar包/mysql-connector-java-8.0.30.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="furitStore/web/Web" />
+    </root>
+  </artifact>
+</component>

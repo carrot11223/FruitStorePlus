@@ -1,0 +1,34 @@
+<!--由于H5的自适应，对于设置高度不起作用，但此处只是做一个简单的计算，因此笔者采取H4-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改水果</title>
+    <link rel="stylesheet" th:href="@{/web/css/edit.css}" >
+    <script type="text/javascript" th:src="@{/web/js/Good.js}" ></script>
+</head>
+<body>
+<!--版心盒子-->
+<div id="div_container">
+    <!--放置表格的盒子 -->
+    <div id="div_fruit_lists">
+        <!--水果表 表格内数据均为模拟数据，不涉及数据库的操作-->
+        <p class="center-pill">修改水果信息</p>
+        <form th:action="@{/update}" method="post">
+        <table id="tbl_fruit">
+            <tr>
+                <input type="hidden" name="id" th:value="${fruit.id}"><br/>
+                <th>果名: <input type="text" name="name" th:value="${fruit.name}"></th><br/>
+                <th>单价(元/斤): <input type="text" name="price" th:value="${fruit.price}"></th><br/>
+                <th>重量(斤):  <input type="text" name="weight" th:value="${fruit.weight}"></th><br/>
+                <th>描述 : <input type="text" name="remark" th:value="${fruit.remark}"></th><br/>
+
+            </tr>
+
+        </table>
+            <input type="submit" value="修改">
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

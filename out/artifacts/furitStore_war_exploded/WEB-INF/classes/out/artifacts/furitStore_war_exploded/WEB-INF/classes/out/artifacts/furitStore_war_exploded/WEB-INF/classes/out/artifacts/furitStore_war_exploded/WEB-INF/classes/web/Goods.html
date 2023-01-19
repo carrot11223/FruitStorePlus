@@ -1,0 +1,53 @@
+<!--由于H5的自适应，对于设置高度不起作用，但此处只是做一个简单的计算，因此笔者采取H4-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>水果摊位的简易算账小工具</title>
+    <link rel="stylesheet" href="css/Goods.css">
+    <script type="text/javascript" src="js/Good.js" ></script>
+</head>
+<body>
+<!--版心盒子-->
+<div id="div_container">
+<!--放置表格的盒子 -->
+    <div id="div_fruit_lists">
+<!--水果表 表格内数据均为模拟数据，不涉及数据库的操作-->
+        <p class="center-pill">欢迎购买水果</p>
+            <table id="tbl_fruit">
+                <tr>
+                    <th>果名2</th><th>单价(元/斤)</th><th>重量(斤)</th><th>小计(元)</th><th>描述</th><th>删除水果</th>
+                </tr>
+                <!--如果是空，就输出这句-->
+                <tr th:if="${#lists.isEmpty(session.fruitList)}">
+                    <td colspan="4" style="color: red">对不起，库存为空！</td>
+                </tr>
+                <!--如果不是空，就输出这句，un有否定意味-->
+                <tr th:unless="${#lists.isEmpty(session.fruitList)}" th:each="fruit : ${session.fruitList}">
+                  <!--  th:href="@{}"语法相当于是从根路径往下走的。比如th:href="@{/edit.do}"指的就是href = "http://localhost:8081/fruit/edit.do"-->
+                    <!--<td><a th:href="@{'/edit?id='+${fruit.id}}" th:text="${fruit.name}">2 </a></td> 这是一种写法，刚开始的时候忘记了最后面那个} 导致页面出现问题-->
+                    <td><a th:href="@{/edit(id=${fruit.id})}" th:text="${fruit.name}">2 </a></td><!--第二种写法 键值对key = value类型的-->
+                    <td th:text="${fruit.price}">7</td>
+                    <td th:text="${fruit.weight}">1</td>
+                    <td>3.12</td>
+                    <td th:text="${fruit.remark}">7</td>
+                   <!-- 第一种写法：字符串拼接<td><img src="imgs/del.jpg" th:onclick="'delF('+${fruit.id}+')'"></td>-->
+                    <td><img src="imgs/del.jpg" th:onclick="|delF(${fruit.id})|"></td> <!--加上|之后delF里面的东西就不被识别为字符串了-->
+                </tr>
+                <tr>
+                    <td>总计</td><td colspan="4">999</td>
+                </tr>
+                <tr>
+                    <td>增补</td><td colspan="4"><a th:href="@{/addF}">添加</a></td>
+                </tr>
+            </table>
+        <div style="width: 60%;margin-left: 20%;text-align: center;margin-top: 5px" >
+         <input class="btn" type="button" name="shou" th:onclick="|page(1)|" th:disabled="${session.pageNO==1}">首 页</button>
+        <input class="btn" type="button"  name="shang" th:onclick="|page(${session.pageNO-1})|" th:disabled="${session.pageNO==1}">上一页</input>
+        <input class="btn" type="button"  name="xia" th:onclick="|page(${session.pageNO+1})|" th:disabled="${session.pageCount}">下一页</input>
+        <input class="btn" type="button"  name="wei" th:onclick="|page(${session.pageCount})|" th:disabled="${session.pageCount}">尾 页</input>
+        </div>
+        </div>
+
+</div>
+</body>
+</html>
